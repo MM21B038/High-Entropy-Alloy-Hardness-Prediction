@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+*.egg-info/
+.env/
+venv/
+.DS_Store
+*.h5
+*.pkl
+
+# Jupyter Notebook
+.ipynb_checkpoints/
