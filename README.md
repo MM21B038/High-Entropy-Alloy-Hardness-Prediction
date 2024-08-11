@@ -18,7 +18,7 @@ This project focuses on predicting the hardness of high-entropy alloy Mo-Nb-Ta-W
 1. Clone the repository:
    ```bash
    git clone https://github.com/MM21B038/High-Entropy-Alloy-Hardness-Prediction.git
-   cd High-Entropy-Alloy-Hardness
+   cd High-Entropy-Alloy-Hardness-Prediction
 
 2. Install the required packages:
    ```bash
