@@ -153,6 +153,7 @@ def train_and_evaluate_models(x_train, x_test, y_train, y_test):
     y_pred = regressor.predict(x_test)
     importances = regressor.feature_importances_
     
+    df = pd.read_excel('data/Data.xlsx')
     #Feature Importance Plot
     feature_names = df.columns
     indices = np.argsort(importances)[::-1]
@@ -225,7 +226,8 @@ def train_and_evaluate_models(x_train, x_test, y_train, y_test):
     plt.show()
 
     # sigma_T vs Hardness
-    sns.barplot(x="sigma_T", y="hardness", hue="reduced modulus", data=df, palette="PuBu")
+    fig = plt.figure(figsize=(10, 8))
+    sns.barplot(x="sigma_T", y="hardness", data=df, palette="PuBu")
     plt.title("sigma_T vs Hardness")
     plt.ylim(4,11)
     plt.savefig('sigma_T_vs_Hardness.png')
