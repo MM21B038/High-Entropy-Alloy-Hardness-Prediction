@@ -182,72 +182,72 @@ def train_and_evaluate_models(x_train, x_test, y_train, y_test):
     plt.title('Reduced Modulus vs Hardness')
     plt.legend()
     plt.grid(True)
-	plt.savefig('Reduced_Modulus_vs_Hardness.png')
-	plt.show()
+    plt.savefig('Reduced_Modulus_vs_Hardness.png')
+    plt.show()
 
-	# 2. Y vs Hardness
-	plt.figure(figsize=(10, 6))
-	plt.scatter(sc.inverse_transform(x_train)[:, 6], y_train, label='Train Set', alpha=0.7) # Inverse transform the entire training set and extract the second column
-	plt.scatter(sc.inverse_transform(x_test)[:, 6], y_test, label='Test Set', alpha=0.7) # Inverse transform the entire test set and extract the second column
-	plt.scatter(sc.inverse_transform(x_test)[:, 6], y_pred, label='Predictions', marker='x', color='red') # Inverse transform the entire test set and extract the second column
-	plt.xlabel('Y')
-	plt.ylabel('Hardness')
-	plt.title('Y vs Hardness')
-	plt.legend()
-	plt.grid(True)
-	plt.savefig('Y_vs_Hardness.png')
-	plt.show()
+    # 2. Y vs Hardness
+    plt.figure(figsize=(10, 6))
+    plt.scatter(sc.inverse_transform(x_train)[:, 6], y_train, label='Train Set', alpha=0.7) # Inverse transform the entire training set and extract the second column
+    plt.scatter(sc.inverse_transform(x_test)[:, 6], y_test, label='Test Set', alpha=0.7) # Inverse transform the entire test set and extract the second column
+    plt.scatter(sc.inverse_transform(x_test)[:, 6], y_pred, label='Predictions', marker='x', color='red') # Inverse transform the entire test set and extract the second column
+    plt.xlabel('Y')
+    plt.ylabel('Hardness')
+    plt.title('Y vs Hardness')
+    plt.legend()
+    plt.grid(True)
+    plt.savefig('Y_vs_Hardness.png')
+    plt.show()
 
-	# 3. 3D graph with x-axis = reduced modulus, y-axis = Y, z-axis = hardness
-	fig = plt.figure(figsize=(10, 8))
-	ax = fig.add_subplot(111, projection='3d')
-	ax.scatter(sc.inverse_transform(x_train)[:,7], sc.inverse_transform(x_train)[:,6], y_train, label='Train Set')
-	ax.scatter(sc.inverse_transform(x_test)[:,7], sc.inverse_transform(x_test)[:,6], y_test, label='Test Set')
-	ax.scatter(sc.inverse_transform(x_test)[:,7], sc.inverse_transform(x_test)[:,6], y_pred, c='red', marker='x', label='Predictions')
-	ax.set_xlabel('Reduced Modulus')
-	ax.set_ylabel('Y')
-	ax.set_zlabel('Hardness')
-	plt.title('3D Scatter Plot: Reduced Modulus, Y, Hardness')
-	plt.savefig('3d_scatter_plot_Reduced_Modulus_Y_Hardness.png')
-	plt.show()
+    # 3. 3D graph with x-axis = reduced modulus, y-axis = Y, z-axis = hardness
+    fig = plt.figure(figsize=(10, 8))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.scatter(sc.inverse_transform(x_train)[:,7], sc.inverse_transform(x_train)[:,6], y_train, label='Train Set')
+    ax.scatter(sc.inverse_transform(x_test)[:,7], sc.inverse_transform(x_test)[:,6], y_test, label='Test Set')
+    ax.scatter(sc.inverse_transform(x_test)[:,7], sc.inverse_transform(x_test)[:,6], y_pred, c='red', marker='x', label='Predictions')
+    ax.set_xlabel('Reduced Modulus')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Hardness')
+    plt.title('3D Scatter Plot: Reduced Modulus, Y, Hardness')
+    plt.savefig('3d_scatter_plot_Reduced_Modulus_Y_Hardness.png')
+    plt.show()
 
-	# 4. 3D graph with x-axis = W, y-axis = Ta, z-axis = hardness
-	fig = plt.figure(figsize=(10, 8))
-	ax = fig.add_subplot(111, projection='3d')
-	ax.scatter(sc.inverse_transform(x_train)[:,3], sc.inverse_transform(x_train)[:,2], y_train, label='Train Set')
-	ax.scatter(sc.inverse_transform(x_test)[:,3], sc.inverse_transform(x_test)[:,2], y_test, label='Test Set')
-	ax.scatter(sc.inverse_transform(x_test)[:,3], sc.inverse_transform(x_test)[:,2], y_pred, c='red', marker='x', label='Predictions')
-	ax.set_xlabel('W')
-	ax.set_ylabel('Ta')
-	ax.set_zlabel('Hardness')
-	plt.title('3D Scatter Plot: W, Ta, Hardness')
-	plt.savefig('3d_scatter_plot_W_Ta_Hardness.png')
-	plt.show()
+   # 4. 3D graph with x-axis = W, y-axis = Ta, z-axis = hardness
+    fig = plt.figure(figsize=(10, 8))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.scatter(sc.inverse_transform(x_train)[:,3], sc.inverse_transform(x_train)[:,2], y_train, label='Train Set')
+    ax.scatter(sc.inverse_transform(x_test)[:,3], sc.inverse_transform(x_test)[:,2], y_test, label='Test Set')
+    ax.scatter(sc.inverse_transform(x_test)[:,3], sc.inverse_transform(x_test)[:,2], y_pred, c='red', marker='x', label='Predictions')
+    ax.set_xlabel('W')
+    ax.set_ylabel('Ta')
+    ax.set_zlabel('Hardness')
+    plt.title('3D Scatter Plot: W, Ta, Hardness')
+    plt.savefig('3d_scatter_plot_W_Ta_Hardness.png')
+    plt.show()
 
-	# sigma_T vs Hardness
-	sns.barplot(x="sigma_T", y="hardness", hue="reduced modulus", data=df, palette="PuBu")
-	plt.title("sigma_T vs Hardness")
-	plt.ylim(4,11)
-	plt.savefig('sigma_T_vs_Hardness.png')
-	plt.show()
+    # sigma_T vs Hardness
+    sns.barplot(x="sigma_T", y="hardness", hue="reduced modulus", data=df, palette="PuBu")
+    plt.title("sigma_T vs Hardness")
+    plt.ylim(4,11)
+    plt.savefig('sigma_T_vs_Hardness.png')
+    plt.show()
 
-	# Predicted vs. Actual Values
-	residuals = y_pred - y_test
-	abs_residuals = np.abs(residuals)
-	norm_residuals = abs_residuals / np.max(abs_residuals)
-	cmap = plt.cm.get_cmap("PuBu")  # You can choose any colormap you prefer
-	colors = cmap(norm_residuals)
-	plt.figure(figsize=(8, 5))
-	sns.scatterplot(x=y_test, y=y_pred, hue=norm_residuals, palette="PuBu", legend=False, edgecolor=None)
-	plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--')
-	plt.xlabel('Actual Values')
-	plt.ylabel('Predicted Values')
-	plt.title('Predicted vs. Actual Values')
-	sm = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=0, vmax=np.max(abs_residuals)))
-	sm.set_array([])
-	plt.colorbar(sm, label='Distance from Diagonal Line')
-	plt.savefig('Predicted_vs_Actual.png')
-	plt.show()
+    # Predicted vs. Actual Values
+    residuals = y_pred - y_test
+    abs_residuals = np.abs(residuals)
+    norm_residuals = abs_residuals / np.max(abs_residuals)
+    cmap = plt.cm.get_cmap("PuBu")  # You can choose any colormap you prefer
+    colors = cmap(norm_residuals)
+    plt.figure(figsize=(8, 5))
+    sns.scatterplot(x=y_test, y=y_pred, hue=norm_residuals, palette="PuBu", legend=False, edgecolor=None)
+    plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--')
+    plt.xlabel('Actual Values')
+    plt.ylabel('Predicted Values')
+    plt.title('Predicted vs. Actual Values')
+    sm = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=0, vmax=np.max(abs_residuals)))
+    sm.set_array([])
+    plt.colorbar(sm, label='Distance from Diagonal Line')
+    plt.savefig('Predicted_vs_Actual.png')
+    plt.show()
 
 	# Residuals Distribution
 	residuals = y_test - y_pred
