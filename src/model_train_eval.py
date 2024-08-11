@@ -180,8 +180,8 @@ def train_and_evaluate_models(x_train, x_test, y_train, y_test):
     plt.xlabel('Reduced Modulus')
     plt.ylabel('Hardness')
     plt.title('Reduced Modulus vs Hardness')
- 	plt.legend()
-	plt.grid(True)
+    plt.legend()
+    plt.grid(True)
 	plt.savefig('Reduced_Modulus_vs_Hardness.png')
 	plt.show()
 
