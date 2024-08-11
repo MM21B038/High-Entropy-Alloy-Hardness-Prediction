@@ -249,17 +249,17 @@ def train_and_evaluate_models(x_train, x_test, y_train, y_test):
     plt.savefig('Predicted_vs_Actual.png')
     plt.show()
 
-	# Residuals Distribution
-	residuals = y_test - y_pred
-	counts, bins = np.histogram(residuals, bins=30)
-	norm = Normalize(vmin=counts.min(), vmax=counts.max())
-	cmap = plt.cm.PuBu
-	plt.figure(figsize=(8, 5))
-	for count, left, right in zip(counts, bins[:-1], bins[1:]):
+    # Residuals Distribution
+    residuals = y_test - y_pred
+    counts, bins = np.histogram(residuals, bins=30)
+    norm = Normalize(vmin=counts.min(), vmax=counts.max())
+    cmap = plt.cm.PuBu
+    plt.figure(figsize=(8, 5))
+    for count, left, right in zip(counts, bins[:-1], bins[1:]):
     	plt.fill_between([left, right], 0, count, color=cmap(norm(count)))
-	sns.kdeplot(residuals, color='black')
-	plt.title('Residuals Distribution')
-	plt.xlabel('Residuals')
-	plt.ylabel('Frequency')
-	plt.savefig('residuals_distribution.png')
-	plt.show()
+    sns.kdeplot(residuals, color='black')
+    plt.title('Residuals Distribution')
+    plt.xlabel('Residuals')
+    plt.ylabel('Frequency')
+    plt.savefig('residuals_distribution.png')
+    plt.show()
