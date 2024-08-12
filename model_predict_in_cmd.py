@@ -65,7 +65,7 @@ def main():
                 continue
 
             if df is not None:
-                x_test = df.iloc[:,:-1].values
+                x_test = df.iloc[:,:].values
                 x_test = sc.transform(x_test)
                 y_pred = model.predict(x_test)
                 y_pred = y_pred.reshape(len(y_pred), 1)
